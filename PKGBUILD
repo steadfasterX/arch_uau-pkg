@@ -1,6 +1,6 @@
 pkgname=uau
 pkgver=0.0.1
-pkgrel=1
+pkgrel=7
 pkgdesc="uAu - unattended Arch upgrade is a little helper to damage your system by installing Arch upgrades non-interactively"
 arch=('any')
 url="https://github.com/steadfasterX/arch_uau"
@@ -21,7 +21,6 @@ MAN5PAGE=uau.5
 MAN8PAGE=uau.8
 USER=root
 GROUP=root
-UPDATEUSER=archupdater
 install=${pkgname}.install
 
 #build() {
@@ -33,8 +32,9 @@ package() {
 
     #install -o ${USER} -g ${GROUP} -m 0755 bin/uau-archnews ${BINFIX}/uau-archnews
     mkdir -p $pkgdir/etc/cron.d $pkgdir/${SUDOERS} $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR
+
     install -o ${USER} -g ${GROUP} -m 0755 $BINFIX/* $pkgdir/${BINFIX}
-    ln -sfv $pkgdir/${BINFIX}/uau $pkgdir/${BINFIX}/unattended-upgrade
+    ln -sfv uau $pkgdir/${BINFIX}/unattended-upgrade
     install -o ${USER} -g ${GROUP} -m 0700 conf/uau_sudo $pkgdir/${SUDOERS}/uau_sudo
     install -o ${USER} -g ${GROUP} -m 0744 conf/unattended-arch-upgrade.conf $pkgdir/etc/unattended-arch-upgrade.conf
     install -o ${USER} -g ${GROUP} -m 0744 conf/unattended-arch-upgrade.ignore $pkgdir/etc/unattended-arch-upgrade.ignore
