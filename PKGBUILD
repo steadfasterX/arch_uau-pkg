@@ -1,6 +1,6 @@
 pkgname=uau
 pkgver=0.0.1
-pkgrel=17
+pkgrel=18
 pkgdesc="uAu - unattended Arch upgrade is a little helper to damage your system by installing Arch upgrades non-interactively"
 arch=('any')
 url="https://github.com/steadfasterX/arch_uau"
