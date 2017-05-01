@@ -1,13 +1,13 @@
 pkgname=uau
 pkgver=0.0.1
-pkgrel=7
+pkgrel=17
 pkgdesc="uAu - unattended Arch upgrade is a little helper to damage your system by installing Arch upgrades non-interactively"
 arch=('any')
 url="https://github.com/steadfasterX/arch_uau"
-license=('LGPL-3.0')
+license=('LGPL3')
 depends=('aur-comment-fetcher-git' 'checkupdates+aur' 'sudo' 'pacman' 'python3-memoizedb')
 makedepends=('git')
-optdepends=('ssmtp')
+optdepends=('ssmtp: to provide the sendmail like mail command')
 backup=('etc/unattended-arch-upgrade.conf' 'etc/unattended-arch-upgrade.ignore')
 source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
 md5sums=('SKIP')
@@ -23,21 +23,17 @@ USER=root
 GROUP=root
 install=${pkgname}.install
 
-#build() {
-#    
-#}
-
 package() {
     cd "arch_$pkgname-$pkgver"
 
-    #install -o ${USER} -g ${GROUP} -m 0755 bin/uau-archnews ${BINFIX}/uau-archnews
-    mkdir -p $pkgdir/etc/cron.d $pkgdir/${SUDOERS} $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR
+    mkdir -p $pkgdir/etc/cron.d $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR
 
-    install -o ${USER} -g ${GROUP} -m 0755 $BINFIX/* $pkgdir/${BINFIX}
-    ln -sfv uau $pkgdir/${BINFIX}/unattended-upgrade
+    install -d -m 0750 $pkgdir/${SUDOERS}
     install -o ${USER} -g ${GROUP} -m 0700 conf/uau_sudo $pkgdir/${SUDOERS}/uau_sudo
     install -o ${USER} -g ${GROUP} -m 0744 conf/unattended-arch-upgrade.conf $pkgdir/etc/unattended-arch-upgrade.conf
     install -o ${USER} -g ${GROUP} -m 0744 conf/unattended-arch-upgrade.ignore $pkgdir/etc/unattended-arch-upgrade.ignore
+    install -o ${USER} -g ${GROUP} -m 0755 bin/* $pkgdir/${BINFIX}/
+    ln -sfv uau $pkgdir/${BINFIX}/unattended-upgrade
     install -o ${USER} -g ${GROUP} -m 0755 conf/archnews_cron $pkgdir/etc/cron.d/archnews
     install -o ${USER} -g ${GROUP} -m 0755 conf/unattended-arch-upgrade.service $pkgdir/${SYSD}/unattended-arch-upgrade.service
     install -o ${USER} -g ${GROUP} -m 0755 conf/unattended-arch-upgrade.timer $pkgdir/${SYSD}/unattended-arch-upgrade.timer
