@@ -14,10 +14,15 @@ post_install() {
     systemctl enable unattended-arch-upgrade.timer
     systemctl start unattended-arch-upgrade.timer
     systemctl list-timers unattended-arch-upgrade.timer
+
+    sed -i '/\[options\]/a Include=/etc/unattended-arch-upgrade.ignore' $PACCONF
 }
 
 pre_remove() {
     . /etc/unattended-arch-upgrade.conf
+    
+    sed -i 's#Include=/etc/unattended-arch-upgrade.ignore##g' $PACCONF
+
     systemctl stop unattended-arch-upgrade.timer
     systemctl disable unattended-arch-upgrade.timer
     userdel $UPDATEUSER -r
