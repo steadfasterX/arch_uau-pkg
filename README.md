@@ -6,8 +6,9 @@ package build for uau (https://github.com/steadfasterX/arch_uau/)
 
 ### Install the requirements
 
-`gpg --receive-keys 1D1F0DC78F173680
-yaourt -S --noconfirm aur-comment-fetcher-git checkupdates+aur python3-memoizedb`
+`gpg --receive-keys 1D1F0DC78F173680`
+
+`yaourt -S --noconfirm aur-comment-fetcher-git checkupdates+aur python3-memoizedb`
 
 #### optional: Install mail
 
