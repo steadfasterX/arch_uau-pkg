@@ -1,5 +1,4 @@
 
-
 post_install() {
     . /etc/unattended-arch-upgrade.conf
 
@@ -16,6 +15,9 @@ post_install() {
     systemctl list-timers unattended-arch-upgrade.timer
 
     sed -i '/\[options\]/a Include=/etc/unattended-arch-upgrade.ignore' $PACCONF
+
+    mkdir -p $LOGDIR
+    chown $UPDATEUSER $LOGDIR
 }
 
 pre_remove() {
