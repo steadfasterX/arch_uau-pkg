@@ -18,6 +18,8 @@ post_install() {
 
     mkdir -p $LOGDIR
     chown $UPDATEUSER $LOGDIR
+
+    chmod 644 /etc/cron.d/archnews
 }
 
 pre_remove() {
