@@ -20,6 +20,8 @@ I use and have tested only sstmp but every sendmail-like `mail` cmd will do.
 
 #### Build & Install
 
+`git clone https://github.com/steadfasterX/arch_uau-pkg.git`
+`cd arch_uau-pkg` 
 `makepkg -si`
 
 #### Configure
