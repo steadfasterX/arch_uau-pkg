@@ -14,7 +14,7 @@ package build for uau (https://github.com/steadfasterX/arch_uau/)
 
 If you have the command `mail` **not** available on your system:
 
-`sudo pacman -S sstmp`
+`sudo pacman -S ssmtp`
 
 I use and have tested only sstmp but every sendmail-like `mail` cmd will do.
 
