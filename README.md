@@ -28,5 +28,19 @@ I use and have tested only sstmp but every sendmail-like `mail` cmd will do.
 
 #### Configure
 
-*TBD*
+Set the expiry, inactive etc to never:
+
+`chage -E -1 -I -1 -m -1 -M -1 archupdater`
+
+*/etc/unattended-arch-upgrade.conf*
+
+All options are well documented in that conf file. Just adjust it to your needs.
+
+*/etc/unattended-arch-upgrade.ignore*
+
+This one should be used VERY carefully as ignoring packages can result in unexpected system behavior.
+Each "IgnorePkg=" can just contain 1 package name.
+
+Bad example: libraries
+Good example: kernel
 
