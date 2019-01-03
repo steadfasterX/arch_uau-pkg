@@ -1,7 +1,8 @@
+# Maintainer: steadfasterX <steadfasterX [at] gmail -dot- com>
 pkgname=uau
 pkgver=1.1.0
 pkgrel=1
-pkgdesc="uAu - unattended Arch upgrade is a little helper to damage your system by installing Arch upgrades non-interactively"
+pkgdesc="A little helper for installing Arch upgrades scheduled, respecting the recommended upgrade checks and doing all this non-interactively"
 arch=('any')
 url="https://github.com/steadfasterX/arch_uau"
 license=('LGPL3')
