@@ -20,6 +20,28 @@ post_install() {
 
 post_upgrade(){
     systemctl daemon-reload
+
+    # remove legacy binaries
+    for ob in uau unattended-upgrade uau-archnews ;do
+        if [ /usr/local/bin/$ob ];then
+            rm /usr/local/bin/$ob
+        fi
+    done
+
+    # remove typo'ed log files
+    for ol in systemclt-failed.after systemclt-failed.before ;do
+        if [ /var/log/unattended-upgrade/$ol ];then
+            rm /var/log/unattended-upgrade/$ol
+        fi
+    done
+
+    # show config diff if any
+    if [ -f /etc/unattended-arch-upgrade.conf.pacnew ];then
+        echo -e "\n###########################################################################"
+        echo -e "Verify the following diffs are fine (right site are from the uAu package):"
+        sdiff -s /etc/unattended-arch-upgrade.conf /etc/unattended-arch-upgrade.conf.pacnew
+        echo -e "###########################################################################\n"
+    fi
 }
 
 pre_remove() {

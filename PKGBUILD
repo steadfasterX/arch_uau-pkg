@@ -1,18 +1,20 @@
-# Maintainer: steadfasterX <steadfasterX [at] gmail -dot- com>
+# Maintainer: steadfasterX <steadfasterX [at] binbash -dot- rocks>
 pkgname=uau
-pkgver=2.1.0
-pkgrel=2
+pkgver=3.0.0
+pkgrel=1
 pkgdesc="unattended upgrades for Arch. Schedule automatic upgrades while respecting the recommended upgrade process (Arch wiki - System maintenance)."
 arch=('any')
 url="https://github.com/steadfasterX/arch_uau"
 license=('LGPL3')
-depends=('aur-comment-fetcher-git' 'archnews2' 'sudo' 'pacman' 'python3-memoizedb')
+depends=('aur-comment-fetcher-git' 'python-feedparser' 'sudo' 'pacman')
 makedepends=('git')
 optdepends=('ssmtp: extreme simple Mail Transport Agent' 's-nail: to provide the sendmail like mail command' 'yay')
 backup=('etc/unattended-arch-upgrade.conf' 'etc/unattended-arch-upgrade.ignore')
-source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
-md5sums=('6414fe93ccb8521664282c34234a89b4')
-BINFIX=usr/local/bin
+source=("https://github.com/steadfasterX/arch_uau/archive/refs/heads/main.zip")
+sha256sums=('d84fc509b205497070d444979e3f708aab4784a3009722d2cb50c7162f67683d')
+#source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
+#md5sums=('6414fe93ccb8521664282c34234a89b4')
+BINFIX=usr/bin
 SUDOERS=etc/sudoers.d
 SYSD=etc/systemd/system
 MANDIR=usr/share/man
@@ -25,7 +27,8 @@ GROUP=root
 install=${pkgname}.install
 
 package() {
-    cd "arch_$pkgname-$pkgver"
+    #cd "arch_$pkgname-$pkgver"
+    cd "arch_$pkgname-main"
 
     mkdir -p $pkgdir/etc/cron.d $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR
 

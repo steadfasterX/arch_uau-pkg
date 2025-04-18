@@ -8,7 +8,7 @@ package build for uau (https://github.com/steadfasterX/arch_uau/)
 
 `gpg --receive-keys 1D1F0DC78F173680`
 
-`yay -S --noconfirm aur-comment-fetcher-git checkupdates+aur python3-memoizedb`
+`yay -S --noconfirm aur-comment-fetcher-git checkupdates+aur python3-aur`
 
 #### optional: Install mail
 
@@ -37,6 +37,6 @@ All options are well documented in that conf file. Just adjust it to your needs.
 This one should be used VERY carefully as ignoring packages can result in unexpected system behavior.
 Each "IgnorePkg=" can just contain 1 package name.
 
-Bad example: libraries
-Good example: kernel
+- Bad example: _libraries_
+- Good example: _kernel_
 
