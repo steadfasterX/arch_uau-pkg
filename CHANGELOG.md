@@ -29,6 +29,8 @@ Changes:
     - new option: `--html` (--text set as default)
 - renamed: `uau-archnews` -> `uau-news-wrapper`
 - removed: read/unread options for Arch news feed
+- added: `90-uau-reboot-required.hook` which creates an indicator file to detect common reasons for a reboot
+- added: package lists (with and without AUR)
 
 Fixes:
 

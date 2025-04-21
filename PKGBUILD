@@ -12,7 +12,7 @@ optdepends=('ssmtp: extreme simple Mail Transport Agent' 's-nail: to provide the
 backup=('etc/unattended-arch-upgrade.conf' 'etc/unattended-arch-upgrade.ignore')
 source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
 changelog="CHANGELOG.md"
-sha256sums=('fae3429b439fa2896b4edb9650009fac330e0106019ef579ee5144dbd1d3e7a1')
+sha256sums=('fb4ac058b97e9d04a3320c7ed0419e347595efaf4cbdca80aeb1a6e933f73903')
 BINFIX=usr/bin
 SUDOERS=etc/sudoers.d
 SYSD=etc/systemd/system
@@ -28,7 +28,7 @@ install=${pkgname}.install
 package() {
     cd "arch_$pkgname-$pkgver"
 
-    mkdir -p $pkgdir/etc/cron.d $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR
+    mkdir -p $pkgdir/etc/cron.d $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR $pkgdir/etc/pacman.d/hooks
 
     install -d -m 0750 $pkgdir/${SUDOERS}
     install -o ${USER} -g ${GROUP} -m 0700 conf/uau_sudo $pkgdir/${SUDOERS}/uau_sudo
@@ -39,6 +39,7 @@ package() {
     install -o ${USER} -g ${GROUP} -m 0644 conf/archnews_cron $pkgdir/etc/cron.d/archnews
     install -o ${USER} -g ${GROUP} -m 0755 conf/unattended-arch-upgrade.service $pkgdir/${SYSD}/unattended-arch-upgrade.service
     install -o ${USER} -g ${GROUP} -m 0755 conf/unattended-arch-upgrade.timer $pkgdir/${SYSD}/unattended-arch-upgrade.timer
+    install -o ${USER} -g ${GROUP} -m 0644 conf/uau.hook $pkgdir/etc/pacman.d/hooks/90-uau-reboot-required.hook
 
     install -m 0644 doc/${MAN5PAGE} $pkgdir/${MAN5DIR}/${MAN5PAGE}
     install -m 0644 doc/${MAN8PAGE} $pkgdir/${MAN8DIR}/${MAN8PAGE}

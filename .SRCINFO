@@ -17,6 +17,6 @@ pkgbase = uau
 	backup = etc/unattended-arch-upgrade.conf
 	backup = etc/unattended-arch-upgrade.ignore
 	source = https://github.com/steadfasterX/arch_uau/archive/v3.0.0.tar.gz
-	sha256sums = fae3429b439fa2896b4edb9650009fac330e0106019ef579ee5144dbd1d3e7a1
+	sha256sums = fb4ac058b97e9d04a3320c7ed0419e347595efaf4cbdca80aeb1a6e933f73903
 
 pkgname = uau
