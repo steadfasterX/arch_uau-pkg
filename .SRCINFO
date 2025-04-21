@@ -4,6 +4,7 @@ pkgbase = uau
 	pkgrel = 1
 	url = https://github.com/steadfasterX/arch_uau
 	install = uau.install
+	changelog = CHANGELOG.md
 	arch = any
 	license = LGPL3
 	makedepends = git
@@ -16,7 +17,7 @@ pkgbase = uau
 	optdepends = yay
 	backup = etc/unattended-arch-upgrade.conf
 	backup = etc/unattended-arch-upgrade.ignore
-	source = https://github.com/steadfasterX/arch_uau/archive/refs/heads/main.zip
-	sha256sums = d84fc509b205497070d444979e3f708aab4784a3009722d2cb50c7162f67683d
+	source = https://github.com/steadfasterX/arch_uau/archive/v3.0.0.tar.gz
+	sha256sums = fae3429b439fa2896b4edb9650009fac330e0106019ef579ee5144dbd1d3e7a1
 
 pkgname = uau

@@ -10,10 +10,9 @@ depends=('aur-comment-fetcher-git' 'python-feedparser' 'sudo' 'pacman')
 makedepends=('git')
 optdepends=('ssmtp: extreme simple Mail Transport Agent' 's-nail: to provide the sendmail like mail command' 'yay')
 backup=('etc/unattended-arch-upgrade.conf' 'etc/unattended-arch-upgrade.ignore')
-source=("https://github.com/steadfasterX/arch_uau/archive/refs/heads/main.zip")
-sha256sums=('d84fc509b205497070d444979e3f708aab4784a3009722d2cb50c7162f67683d')
-#source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
-#md5sums=('6414fe93ccb8521664282c34234a89b4')
+source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
+changelog="CHANGELOG.md"
+sha256sums=('fae3429b439fa2896b4edb9650009fac330e0106019ef579ee5144dbd1d3e7a1')
 BINFIX=usr/bin
 SUDOERS=etc/sudoers.d
 SYSD=etc/systemd/system
@@ -27,8 +26,7 @@ GROUP=root
 install=${pkgname}.install
 
 package() {
-    #cd "arch_$pkgname-$pkgver"
-    cd "arch_$pkgname-main"
+    cd "arch_$pkgname-$pkgver"
 
     mkdir -p $pkgdir/etc/cron.d $pkgdir/${BINFIX} $pkgdir/$SYSD $pkgdir/$MAN5DIR $pkgdir/$MAN8DIR
 
