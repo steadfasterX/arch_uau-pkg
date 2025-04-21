@@ -23,14 +23,14 @@ post_upgrade(){
 
     # remove legacy binaries
     for ob in uau unattended-upgrade uau-archnews ;do
-        if [ /usr/local/bin/$ob ];then
+        if [ -e /usr/local/bin/$ob ];then
             rm /usr/local/bin/$ob
         fi
     done
 
     # remove typo'ed log files
     for ol in systemclt-failed.after systemclt-failed.before ;do
-        if [ /var/log/unattended-upgrade/$ol ];then
+        if [ -e /var/log/unattended-upgrade/$ol ];then
             rm /var/log/unattended-upgrade/$ol
         fi
     done
