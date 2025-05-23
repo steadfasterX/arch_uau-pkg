@@ -1,18 +1,18 @@
 # Maintainer: steadfasterX <steadfasterX [at] binbash -dot- rocks>
 pkgname=uau
 pkgver=3.0.0
-pkgrel=1
+pkgrel=2
 pkgdesc="unattended upgrades for Arch. Schedule automatic upgrades while respecting the recommended upgrade process (Arch wiki - System maintenance)."
 arch=('any')
 url="https://github.com/steadfasterX/arch_uau"
 license=('LGPL3')
 depends=('python-feedparser' 'sudo')
 makedepends=('git')
-optdepends=('ssmtp: extreme simple Mail Transport Agent' 's-nail: to provide the sendmail like mail command' 'yay' 'aur-comment-fetcher-git')
+optdepends=('ssmtp: extreme simple Mail Transport Agent|msmtp: mini smtp client' 's-nail: to provide the mail(x) command' 'yay' 'aur-comment-fetcher-git')
 backup=('etc/unattended-arch-upgrade.conf' 'etc/unattended-arch-upgrade.ignore')
 source=("https://github.com/steadfasterX/arch_$pkgname/archive/v$pkgver.tar.gz")
 changelog="CHANGELOG.md"
-sha256sums=('fb4ac058b97e9d04a3320c7ed0419e347595efaf4cbdca80aeb1a6e933f73903')
+sha256sums=('9b5d87a6ac22ef558c0adaebcb815b79d3416e874750cb6f934dab6bcbc9149b')
 BINFIX=usr/bin
 SUDOERS=etc/sudoers.d
 SYSD=etc/systemd/system

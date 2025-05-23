@@ -1,7 +1,7 @@
 pkgbase = uau
 	pkgdesc = unattended upgrades for Arch. Schedule automatic upgrades while respecting the recommended upgrade process (Arch wiki - System maintenance).
 	pkgver = 3.0.0
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/steadfasterX/arch_uau
 	install = uau.install
 	changelog = CHANGELOG.md
@@ -10,13 +10,13 @@ pkgbase = uau
 	makedepends = git
 	depends = python-feedparser
 	depends = sudo
-	optdepends = ssmtp: extreme simple Mail Transport Agent
-	optdepends = s-nail: to provide the sendmail like mail command
+	optdepends = ssmtp: extreme simple Mail Transport Agent|msmtp: mini smtp client
+	optdepends = s-nail: to provide the mail(x) command
 	optdepends = yay
 	optdepends = aur-comment-fetcher-git
 	backup = etc/unattended-arch-upgrade.conf
 	backup = etc/unattended-arch-upgrade.ignore
 	source = https://github.com/steadfasterX/arch_uau/archive/v3.0.0.tar.gz
-	sha256sums = fb4ac058b97e9d04a3320c7ed0419e347595efaf4cbdca80aeb1a6e933f73903
+	sha256sums = 9b5d87a6ac22ef558c0adaebcb815b79d3416e874750cb6f934dab6bcbc9149b
 
 pkgname = uau
